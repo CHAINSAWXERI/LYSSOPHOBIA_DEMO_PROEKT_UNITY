@@ -14,7 +14,7 @@ namespace PlayerSystems
         [SerializeField] public KeyCode FireButton;
         [SerializeField] public Camera mainCamera;
         [field: SerializeField] public Transform firePoint { private get; set; }
-        [field: SerializeField] public int damageBullet { private get; set; }
+        public int damageBullet { private get; set; }
 
         void Start()
         {

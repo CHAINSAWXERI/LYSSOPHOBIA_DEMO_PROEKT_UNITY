@@ -12,16 +12,15 @@ namespace PlayerSystems
 
         void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+            if (collision.gameObject.layer == targetLayerMask)
             {
-                Debug.Log("1");
                 Bullet bullet;
                 bullet = collision.gameObject.GetComponent<Bullet>();
                 playerHealthView.DecreaseHealth(bullet.Damage);
                 Debug.Log(bullet.Damage);
             }
 
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            if (collision.gameObject.layer == targetLayerMask)
             {
                 /*
                 Enemy enemy;

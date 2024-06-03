@@ -36,6 +36,7 @@ namespace PlayerSystems
         public void NewMaxHealth(int initialHealth)
         {
             maxhealthPoints = initialHealth;
+            healthPoints = initialHealth;
         }
 
         public int GetHealth()

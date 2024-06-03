@@ -30,9 +30,13 @@ public class BrainSlot : MonoBehaviour, IDropHandler
             upgrade.DefaultParent = transform;
             ProcessUpgrade(upgrade);
         }
-        else
+    }
+
+    private void Update()
+    {
+        if (currentObject != null)
         {
-            Debug.Log("ПУСТО!");
+            //currentObject.StatsData;
         }
     }
 }

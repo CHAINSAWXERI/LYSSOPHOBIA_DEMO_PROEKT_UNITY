@@ -15,8 +15,9 @@ namespace Core
 
         [SerializeField] public PlayerHealthView playerHealthView;
         [SerializeField] public PlayerBody playerBody;
+        [SerializeField] public PlayerController playerController;
 
-        [SerializeField] public int playerHealth;
+        [SerializeField] public PlayerData playerData;
 
         void Awake()
         {
@@ -24,8 +25,14 @@ namespace Core
             bulletPool.firePoint = firePoint;
             bulletPool.targetPoint = targetPoint;
 
-            playerHealthView.playerHealth = new PlayerHealthModel(playerHealth);
+
+            PlayerHealthModel newPlayerHealthModel = new PlayerHealthModel(1);
+            playerHealthView.playerHealth = newPlayerHealthModel;
             playerBody.playerHealthView = playerHealthView;
+
+            playerData.playerHealthModel = newPlayerHealthModel;
+            playerData.playerShooting = playerShooting;
+            playerData.playerController = playerController;
         }
     }
 }
