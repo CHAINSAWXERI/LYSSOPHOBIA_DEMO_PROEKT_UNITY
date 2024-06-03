@@ -1,3 +1,4 @@
+using PlayerSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,16 +8,20 @@ namespace UpgradeStoreSystem
     public class UpgradeStoreTriggerZone : MonoBehaviour
     {
         [SerializeField] private GameObject ButtonActivateStoreUI;
-        [SerializeField] private GameObject UpgradeStoreUI;
+        [SerializeField] private DataForUpgradeStore UpgradeStoreUI;
         [SerializeField] private KeyCode ButtonActivateStore;
-        private GameObject player;
+        [SerializeField] private LayerMask TriggerLayer;
+        private PlayerData player;
         private bool IsPlayerInsideTrigger;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            ButtonActivateStoreUI.SetActive(true);
-            IsPlayerInsideTrigger = true;
-            player = collision.gameObject;
+            if (collision.gameObject.layer == TriggerLayer)
+            {
+                ButtonActivateStoreUI.SetActive(true);
+                IsPlayerInsideTrigger = true;
+                player = collision.gameObject.GetComponent<PlayerData>();
+            }
         }
 
 
