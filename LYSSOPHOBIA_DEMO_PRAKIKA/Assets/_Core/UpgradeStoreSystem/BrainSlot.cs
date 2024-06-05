@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class BrainSlot : MonoBehaviour, IDropHandler
 {
+    [SerializeField] public DataForUpgradeStore upgradeStoreData;
     private DragUpgrade currentObject;
 
     public void ProcessUpgrade(DragUpgrade upgrade)
@@ -28,6 +29,7 @@ public class BrainSlot : MonoBehaviour, IDropHandler
         if (upgrade != null)
         {
             upgrade.DefaultParent = transform;
+            upgradeStoreData.UpdatePlayerData(upgrade.StatsData);
             ProcessUpgrade(upgrade);
         }
     }

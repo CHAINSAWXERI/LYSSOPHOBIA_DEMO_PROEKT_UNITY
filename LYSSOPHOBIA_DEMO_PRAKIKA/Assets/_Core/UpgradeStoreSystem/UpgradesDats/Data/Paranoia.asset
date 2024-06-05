@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf811e463eca074093f32a1cf3f8a71, type: 3}
   m_Name: Paranoia
   m_EditorClassIdentifier: 
+  <health>k__BackingField: 0
+  <speed>k__BackingField: 5
+  <damage>k__BackingField: 0

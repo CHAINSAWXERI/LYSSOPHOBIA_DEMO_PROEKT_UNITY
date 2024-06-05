@@ -4,5 +4,13 @@ using UnityEngine;
 using PlayerSystems;
 public class DataForUpgradeStore : MonoBehaviour
 {
-    private PlayerData playerData;
+    public PlayerData playerData;
+
+    public void UpdatePlayerData(UpgradesSO upgradeData)
+    {
+        playerData.moveSpeed += upgradeData.speed;
+        playerData.damageBullet += upgradeData.damage;
+        playerData.healthPoints += upgradeData.health;
+        playerData.UpdateData();
+    }
 }

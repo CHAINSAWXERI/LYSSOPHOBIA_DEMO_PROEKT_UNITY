@@ -10,7 +10,7 @@ namespace UpgradeStoreSystem
         [SerializeField] private GameObject ButtonActivateStoreUI;
         [SerializeField] private DataForUpgradeStore UpgradeStoreUI;
         [SerializeField] private KeyCode ButtonActivateStore;
-        [SerializeField] private LayerMask TriggerLayer;
+        [SerializeField] private int TriggerLayer;
         private PlayerData player;
         private bool IsPlayerInsideTrigger;
 
@@ -21,6 +21,7 @@ namespace UpgradeStoreSystem
                 ButtonActivateStoreUI.SetActive(true);
                 IsPlayerInsideTrigger = true;
                 player = collision.gameObject.GetComponent<PlayerData>();
+                UpgradeStoreUI.playerData = player;
             }
         }
 

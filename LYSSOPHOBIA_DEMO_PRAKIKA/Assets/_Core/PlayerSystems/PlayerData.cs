@@ -11,11 +11,18 @@ namespace PlayerSystems
         public PlayerHealthModel playerHealthModel { private get; set; }
         public PlayerController playerController { private get; set; }
 
-        [SerializeField] private float moveSpeed;
-        [SerializeField] public int damageBullet;
-        [SerializeField] public int healthPoints;
+        [field: SerializeField] public float moveSpeed { get; set; }
+        [field: SerializeField] public int damageBullet { get; set; }
+        [field: SerializeField] public int healthPoints { get; set; }
 
         void Start()
+        {
+            playerController.SpeedUpdate(moveSpeed);
+            playerShooting.DamageUpdate(damageBullet);
+            playerHealthModel.NewMaxHealth(healthPoints);
+        }
+
+        public void UpdateData() 
         {
             playerController.SpeedUpdate(moveSpeed);
             playerShooting.DamageUpdate(damageBullet);

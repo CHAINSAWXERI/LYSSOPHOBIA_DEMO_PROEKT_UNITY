@@ -11,7 +11,7 @@ namespace PlayerSystems
         public PlayerHealthModel playerHealth;
         void Start()
         {
-            int p = (playerHealth.maxhealthPoints / 100) * playerHealth.healthPoints;
+            float p = (playerHealth.maxhealthPoints / 100) * playerHealth.healthPoints;
             healthText.text = p + " %";
         }
 
