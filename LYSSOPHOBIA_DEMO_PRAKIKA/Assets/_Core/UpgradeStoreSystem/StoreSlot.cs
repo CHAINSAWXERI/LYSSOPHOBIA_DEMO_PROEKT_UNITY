@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class StoreSlot : MonoBehaviour, IDropHandler
+namespace UpgradeStoreSystem
 {
-    public void OnDrop(PointerEventData eventData)
+    public class StoreSlot : MonoBehaviour, IDropHandler
     {
-        DragUpgrade upgrade = eventData.pointerDrag.GetComponent<DragUpgrade>();
-
-        if (upgrade != null) 
+        public void OnDrop(PointerEventData eventData)
         {
-            upgrade.DefaultParent = transform;
+            DragUpgrade upgrade = eventData.pointerDrag.GetComponent<DragUpgrade>();
+
+            if (upgrade != null)
+            {
+                upgrade.DefaultParent = transform;
+            }
         }
     }
 }

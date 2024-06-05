@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PlayerSystems;
-public class DataForUpgradeStore : MonoBehaviour
-{
-    public PlayerData playerData;
 
-    public void UpdatePlayerData(UpgradesSO upgradeData)
+namespace UpgradeStoreSystem
+{
+    public class DataForUpgradeStore : MonoBehaviour
     {
-        playerData.moveSpeed += upgradeData.speed;
-        playerData.damageBullet += upgradeData.damage;
-        playerData.healthPoints += upgradeData.health;
-        playerData.UpdateData();
+        public PlayerData playerData;
+
+        public void UpdatePlayerData(UpgradesSO upgradeData)
+        {
+            playerData.moveSpeed += upgradeData.speed;
+            playerData.damageBullet += upgradeData.damage;
+            playerData.healthPoints += upgradeData.health;
+            playerData.UpdateData();
+        }
     }
 }
