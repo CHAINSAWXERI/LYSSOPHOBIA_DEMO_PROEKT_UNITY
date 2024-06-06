@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcf811e463eca074093f32a1cf3f8a71, type: 3}
-  m_Name: Paranoia
+  m_Script: {fileID: 11500000, guid: 488d00911e7024c44bc53b91bdef4f62, type: 3}
+  m_Name: PlayerPocket
   m_EditorClassIdentifier: 
-  <price>k__BackingField: 10
-  <health>k__BackingField: 0
-  <speed>k__BackingField: 30
-  <damage>k__BackingField: 0
+  coins: 40

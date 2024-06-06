@@ -7,10 +7,10 @@ namespace BulletSystem
 {
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] public int Damage;
         [SerializeField] private float speed;
         [SerializeField] private float lifetime;
         [SerializeField] private Rigidbody2D rb;
+        public int Damage;
 
         public Vector2 vectorBetweenPoints;
         private float currentLifeTime;

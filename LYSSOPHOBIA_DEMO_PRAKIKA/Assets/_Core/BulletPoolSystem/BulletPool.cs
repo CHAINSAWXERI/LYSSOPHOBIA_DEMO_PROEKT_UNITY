@@ -17,7 +17,6 @@ namespace BulletPoolSystem
 
         public void Start()
         {
-            damageBullet = 5;
             for (int i = 0; i < poolSize; i++)
             {
                 InstantiateBullet(firePoint.transform.position);

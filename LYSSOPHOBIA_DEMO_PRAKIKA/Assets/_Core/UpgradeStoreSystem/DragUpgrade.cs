@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -15,14 +17,18 @@ namespace UpgradeStoreSystem
         public Transform OriginParent { get; private set; }
         public Transform DefaultParent;
 
+
         void Awake()
         {
             MainCamera = Camera.allCameras[0];
             OriginParent = transform.parent;
+            DefaultParent = transform.parent;
         }
 
+        //outBrain.upgradeStoreData.playerData.pocket.pocketSO.coins > StatsData.price
         public void OnBeginDrag(PointerEventData eventData)
         {
+            BrainSlot outBrain = DefaultParent.GetComponent<BrainSlot>();
             offset = transform.position - MainCamera.ScreenToWorldPoint(eventData.position);
             DefaultParent = transform.parent;
             transform.SetParent(DefaultParent.parent);

@@ -15,13 +15,12 @@ namespace UpgradeStoreSystem
             if (currentObject != null)
             {
                 currentObject.transform.SetParent(currentObject.OriginParent);
+                upgradeStoreData.UpdatePlayerDataMinus(currentObject.StatsData);
                 currentObject = null;
             }
 
             upgrade.transform.SetParent(transform, false);
             currentObject = upgrade;
-
-            Debug.Log($"Объект '{upgrade.name}' был помещен в слот мозга.");
         }
 
         public void OnDrop(PointerEventData eventData)
@@ -31,16 +30,8 @@ namespace UpgradeStoreSystem
             if (upgrade != null)
             {
                 upgrade.DefaultParent = transform;
-                upgradeStoreData.UpdatePlayerData(upgrade.StatsData);
+                upgradeStoreData.UpdatePlayerDataPlus(upgrade.StatsData);
                 ProcessUpgrade(upgrade);
-            }
-        }
-
-        private void Update()
-        {
-            if (currentObject != null)
-            {
-                //currentObject.StatsData;
             }
         }
     }

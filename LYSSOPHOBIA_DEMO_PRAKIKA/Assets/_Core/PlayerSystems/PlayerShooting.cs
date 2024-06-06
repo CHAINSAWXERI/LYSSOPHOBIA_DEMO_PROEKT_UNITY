@@ -16,11 +16,6 @@ namespace PlayerSystems
         [field: SerializeField] public Transform firePoint { private get; set; }
         public int damageBullet { private get; set; }
 
-        void Start()
-        {
-            bulletPool.damageBullet = damageBullet;
-        }
-
         void Update()
         {
             if (Input.GetKeyDown(FireButton))
