@@ -18,8 +18,6 @@ namespace PlayerSystems
         public void DecreaseHealth(int amount)
         {
             healthPoints -= amount;
-            Debug.Log("УДАР " + amount);
-            Debug.Log("Здоровье " + healthPoints);
             if (healthPoints < 0)
             {
                 healthPoints = 0;

@@ -1,13 +1,12 @@
+using EnemySystem;
 using EnemyWalker;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using EnemySystem;
 
-namespace EnemyWalker
+namespace EnemyShooter
 {
-    public class EnemyTriggerZone : MonoBehaviour
+    public class EnemyTriggerZoneRunaway : MonoBehaviour
     {
         [SerializeField] private LayerMask triggeredLayer;
         private bool seePlayer = false;
@@ -16,7 +15,7 @@ namespace EnemyWalker
 
         private void Start()
         {
-            enemy = transform.parent.gameObject.GetComponent<EnemyWalkerAI>();
+            enemy = transform.parent.gameObject.GetComponent<EnemyShooterAI>();
         }
 
         void Update()

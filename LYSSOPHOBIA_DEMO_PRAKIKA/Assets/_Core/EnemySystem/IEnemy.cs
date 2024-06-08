@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EnemyWalker
+namespace EnemySystem
 {
     public interface IEnemy
     {
-        void AttackMode(Transform target);
+        void ActiveMode(Transform target);
     }
 }

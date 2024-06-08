@@ -16,7 +16,6 @@ namespace EnemyWalker
 
         void Start()
         {
-            // Инициализируем время последнего вывода
             lastPrintTime = Time.timeSinceLevelLoad;
         }
 
