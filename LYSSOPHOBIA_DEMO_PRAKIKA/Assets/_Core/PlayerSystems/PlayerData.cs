@@ -14,15 +14,15 @@ namespace PlayerSystems
         [SerializeField] public PlayerStatsSO playerStats;
         [SerializeField] public PlayerPocket pocket;
 
-        public float moveSpeed;
-        public int damageBullet;
-        public int healthPoints;
+        [HideInInspector] public float moveSpeed;
+        [HideInInspector] public int damageBullet;
+        [HideInInspector] public int healthPoints;
 
         void Awake()
         {
-            playerStats.moveSpeed = moveSpeed;
-            playerStats.damageBullet = damageBullet;
-            playerStats.healthPoints = healthPoints;
+            moveSpeed = playerStats.moveSpeed;
+            damageBullet = playerStats.damageBullet;
+            healthPoints = playerStats.healthPoints;
         }
 
         void Start()

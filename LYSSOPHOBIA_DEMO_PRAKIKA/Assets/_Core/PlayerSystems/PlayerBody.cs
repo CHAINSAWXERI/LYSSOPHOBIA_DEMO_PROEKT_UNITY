@@ -7,13 +7,13 @@ namespace PlayerSystems
 {
     public class PlayerBody : MonoBehaviour
     {
-        [SerializeField] private int dangerLayerMaskBullet;
-        [SerializeField] private int dangerLayerMaskEnemy;
+        [SerializeField] private LayerMask dangerLayerMaskBullet;
+
         public PlayerHealthView playerHealthView { private get; set; }
 
         void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.layer == dangerLayerMaskBullet)
+            if (((1 << collision.gameObject.layer) & dangerLayerMaskBullet) != 0)
             {
                 Bullet bullet;
                 bullet = collision.gameObject.GetComponent<Bullet>();
