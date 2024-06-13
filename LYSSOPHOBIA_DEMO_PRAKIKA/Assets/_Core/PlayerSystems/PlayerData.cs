@@ -29,7 +29,6 @@ namespace PlayerSystems
         {
             playerController.SpeedUpdate(moveSpeed);
             playerShooting.DamageUpdate(damageBullet);
-            playerHealthModel.NewMaxHealth(healthPoints);
         }
 
         public void UpdateData() 

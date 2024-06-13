@@ -11,8 +11,8 @@ namespace PlayerSystems
         public PlayerHealthModel playerHealth;
         void Start()
         {
-            float p = (playerHealth.maxhealthPoints / 100) * playerHealth.healthPoints;
-            healthText.text = p + " %";
+            float p = ((float)playerHealth.healthPoints / (float)playerHealth.maxhealthPoints) * 100;
+            healthText.text = (int)p + " %";
         }
 
         public void DecreaseHealth(int amount)
@@ -22,15 +22,15 @@ namespace PlayerSystems
             {
                 Debug.Log("ЛОГИКА ПРОИГРЫША");
             }
-            int p = (playerHealth.maxhealthPoints / 100) * playerHealth.healthPoints;
-            healthText.text = p + " %";
+            float p = ((float)playerHealth.healthPoints / (float)playerHealth.maxhealthPoints) * 100;
+            healthText.text = (int)p + " %";
         }
 
         public void IncreaseHealth(int amount)
         {
             playerHealth.IncreaseHealth(amount);
-            int p = (playerHealth.maxhealthPoints / 100) * playerHealth.healthPoints;
-            healthText.text = p + " %";
+            float p = ((float)playerHealth.healthPoints / (float)playerHealth.maxhealthPoints) * 100;
+            healthText.text = (int)p + " %";
         }
 
         public int GetHealth()

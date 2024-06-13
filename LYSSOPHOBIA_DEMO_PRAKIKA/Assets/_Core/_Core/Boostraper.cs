@@ -26,7 +26,7 @@ namespace Core
             bulletPool.targetPoint = targetPoint;
 
 
-            PlayerHealthModel newPlayerHealthModel = new PlayerHealthModel(1);
+            PlayerHealthModel newPlayerHealthModel = new PlayerHealthModel(playerData.playerStats.healthPoints);
             playerHealthView.playerHealth = newPlayerHealthModel;
             playerBody.playerHealthView = playerHealthView;
 

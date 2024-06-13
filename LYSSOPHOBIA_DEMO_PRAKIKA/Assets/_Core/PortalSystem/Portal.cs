@@ -2,32 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Portal : MonoBehaviour
+namespace PortalSystem
 {
-    [SerializeField]
-    public enum PortalType
+    public class Portal : MonoBehaviour
     {
-        VerLeftPortal,
-        VerRightPortal,
-        HorUpPortal,
-        HorDownPortal
-    }
-
-    [SerializeField] public Transform exitPortal;
-    [SerializeField] public LayerMask triggeredLayer;
-    [SerializeField] public PortalType portalType;
-    public Portal secondPortal;
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (triggeredLayer == (triggeredLayer | (1 << other.gameObject.layer)))
+        [SerializeField]
+        public enum PortalType
         {
-            TeleportPlayer(other.gameObject);
+            VerLeftPortal,
+            VerRightPortal,
+            HorUpPortal,
+            HorDownPortal
         }
-    }
 
-    public void TeleportPlayer(GameObject player)
-    {
-        player.transform.position = secondPortal.exitPortal.position;
+        [SerializeField] public Transform exitPortal;
+        [SerializeField] public LayerMask triggeredLayer;
+        [SerializeField] public PortalType portalType;
+        [SerializeField] public int portaIndex;
+        public Portal secondPortal;
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (triggeredLayer == (triggeredLayer | (1 << other.gameObject.layer)))
+            {
+                TeleportPlayer(other.gameObject);
+            }
+        }
+
+        public void TeleportPlayer(GameObject player)
+        {
+            player.transform.position = secondPortal.exitPortal.position;
+        }
     }
 }

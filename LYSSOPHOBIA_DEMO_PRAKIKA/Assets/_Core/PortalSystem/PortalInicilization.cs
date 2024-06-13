@@ -3,103 +3,120 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class PortalInicilization : MonoBehaviour
+namespace PortalSystem
 {
-    [SerializeField] public List<Portal> Portals;
-
-    private List<Portal> VerticalLeftPortals = new List<Portal>();
-    private List<Portal> VerticalRightPortals = new List<Portal>();
-    private List<Portal> HorizontalUplPortals = new List<Portal>();
-    private List<Portal> HorizontaDownlPortals = new List<Portal>();
-
-    void Start()
+    public class PortalInicilization : MonoBehaviour
     {
+        [SerializeField] public List<Portal> Portals;
 
-        for (int i = 0; i < Portals.Count; i++)
+        private List<Portal> VerticalLeftPortals = new List<Portal>();
+        private List<Portal> VerticalRightPortals = new List<Portal>();
+        private List<Portal> HorizontalUplPortals = new List<Portal>();
+        private List<Portal> HorizontaDownlPortals = new List<Portal>();
+
+        void Start()
         {
-            if (Portals[i].portalType == Portal.PortalType.VerLeftPortal)
-            {
-                VerticalLeftPortals.Add(Portals[i]);
-            }
 
-            if (Portals[i].portalType == Portal.PortalType.VerRightPortal)
+            for (int i = 0; i < Portals.Count; i++)
             {
-                VerticalRightPortals.Add(Portals[i]);
-            }
-
-            if (Portals[i].portalType == Portal.PortalType.HorUpPortal)
-            {
-                HorizontalUplPortals.Add(Portals[i]);
-            }
-
-            if (Portals[i].portalType == Portal.PortalType.HorDownPortal)
-            {
-                HorizontaDownlPortals.Add(Portals[i]);
-            }
-        }
-
-        bool horListsIsEqual = false;
-        bool verListsIsEqual = false;
-
-        for (; (horListsIsEqual == false) & (verListsIsEqual == false);)
-        {
-            if (VerticalLeftPortals.Count != VerticalRightPortals.Count)
-            {
-                if (VerticalLeftPortals.Count > VerticalRightPortals.Count)
+                if (Portals[i].portalType == Portal.PortalType.VerLeftPortal)
                 {
-                    VerticalLeftPortals.Remove(VerticalLeftPortals[VerticalLeftPortals.Count-1]);
+                    VerticalLeftPortals.Add(Portals[i]);
+                }
+
+                if (Portals[i].portalType == Portal.PortalType.VerRightPortal)
+                {
+                    VerticalRightPortals.Add(Portals[i]);
+                }
+
+                if (Portals[i].portalType == Portal.PortalType.HorUpPortal)
+                {
+                    HorizontalUplPortals.Add(Portals[i]);
+                }
+
+                if (Portals[i].portalType == Portal.PortalType.HorDownPortal)
+                {
+                    HorizontaDownlPortals.Add(Portals[i]);
+                }
+            }
+
+            bool horListsIsEqual = false;
+            bool verListsIsEqual = false;
+
+            for (; (horListsIsEqual == false) & (verListsIsEqual == false);)
+            {
+                if (VerticalLeftPortals.Count != VerticalRightPortals.Count)
+                {
+                    if (VerticalLeftPortals.Count > VerticalRightPortals.Count)
+                    {
+                        VerticalLeftPortals.Remove(VerticalLeftPortals[VerticalLeftPortals.Count - 1]);
+                    }
+                    else
+                    {
+                        VerticalRightPortals.Remove(VerticalRightPortals[VerticalRightPortals.Count - 1]);
+                    }
                 }
                 else
                 {
-                    VerticalRightPortals.Remove(VerticalRightPortals[VerticalRightPortals.Count - 1]);
+                    verListsIsEqual = true;
                 }
-            }
-            else
-            {
-                verListsIsEqual = true;
-            }
 
-            if (HorizontalUplPortals.Count != HorizontaDownlPortals.Count)
-            {
-                if (HorizontalUplPortals.Count > HorizontaDownlPortals.Count)
+                if (HorizontalUplPortals.Count != HorizontaDownlPortals.Count)
                 {
-                    HorizontalUplPortals.Remove(HorizontalUplPortals[HorizontalUplPortals.Count - 1]);
+                    if (HorizontalUplPortals.Count > HorizontaDownlPortals.Count)
+                    {
+                        HorizontalUplPortals.Remove(HorizontalUplPortals[HorizontalUplPortals.Count - 1]);
+                    }
+                    else
+                    {
+                        HorizontaDownlPortals.Remove(HorizontaDownlPortals[HorizontaDownlPortals.Count - 1]);
+                    }
                 }
                 else
                 {
-                    HorizontaDownlPortals.Remove(HorizontaDownlPortals[HorizontaDownlPortals.Count - 1]);
+                    horListsIsEqual = true;
                 }
             }
-            else
+
+            int verCount = VerticalLeftPortals.Count;
+            for (int i = 0; i < verCount; i++)
             {
-                horListsIsEqual = true;
+                int leftIndex = Random.Range(0, VerticalLeftPortals.Count);
+                int rightIndex = Random.Range(0, VerticalRightPortals.Count);
+
+                if (VerticalLeftPortals[leftIndex].portaIndex != VerticalRightPortals[rightIndex].portaIndex)
+                {
+                    VerticalLeftPortals[leftIndex].secondPortal = VerticalRightPortals[rightIndex];
+                    VerticalRightPortals[rightIndex].secondPortal = VerticalLeftPortals[leftIndex];
+                    VerticalLeftPortals.RemoveAt(leftIndex);
+                    VerticalRightPortals.RemoveAt(rightIndex);
+                }
+                else
+                {
+                    i--;
+                }
+                
             }
-        }
 
-        int verCount = VerticalLeftPortals.Count;
-        for (int i = 0; i < verCount; i++)
-        {
-            int leftIndex = Random.Range(0, VerticalLeftPortals.Count);
-            int rightIndex = Random.Range(0, VerticalRightPortals.Count);
+            int horCount = HorizontalUplPortals.Count;
+            for (int i = 0; i < horCount; i++)
+            {
+                int upIndex = Random.Range(0, HorizontalUplPortals.Count);
+                int downIndex = Random.Range(0, HorizontaDownlPortals.Count);
 
-            VerticalLeftPortals[leftIndex].secondPortal = VerticalRightPortals[rightIndex];
-            VerticalRightPortals[rightIndex].secondPortal = VerticalLeftPortals[leftIndex];
+                if (HorizontalUplPortals[upIndex].portaIndex != HorizontaDownlPortals[downIndex].portaIndex)
+                {
+                    HorizontalUplPortals[upIndex].secondPortal = HorizontaDownlPortals[downIndex];
+                    HorizontaDownlPortals[downIndex].secondPortal = HorizontalUplPortals[upIndex];
 
-            VerticalLeftPortals.RemoveAt(leftIndex);
-            VerticalRightPortals.RemoveAt(rightIndex);
-        }
-
-        int horCount = HorizontalUplPortals.Count;
-        for (int i = 0; i < horCount; i++)
-        {
-            int leftIndex = Random.Range(0, HorizontalUplPortals.Count);
-            int rightIndex = Random.Range(0, HorizontaDownlPortals.Count);
-
-            HorizontalUplPortals[leftIndex].secondPortal = HorizontaDownlPortals[rightIndex];
-            HorizontaDownlPortals[rightIndex].secondPortal = HorizontalUplPortals[leftIndex];
-
-            HorizontalUplPortals.RemoveAt(leftIndex);
-            HorizontaDownlPortals.RemoveAt(rightIndex);
+                    HorizontalUplPortals.RemoveAt(upIndex);
+                    HorizontaDownlPortals.RemoveAt(downIndex);
+                }
+                else
+                {
+                    i--;
+                }
+            }
         }
     }
 }
