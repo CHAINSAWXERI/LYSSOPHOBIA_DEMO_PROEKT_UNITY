@@ -18,8 +18,10 @@ namespace PortalSystem
         [SerializeField] public Transform exitPortal;
         [SerializeField] public LayerMask triggeredLayer;
         [SerializeField] public PortalType portalType;
-        [SerializeField] public int portaIndex;
-        public Portal secondPortal;
+        [SerializeField] public int portalIndex;
+        [SerializeField] public GameObject block;
+
+        [HideInInspector] public Portal secondPortal;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -32,6 +34,18 @@ namespace PortalSystem
         public void TeleportPlayer(GameObject player)
         {
             player.transform.position = secondPortal.exitPortal.position;
+        }
+
+        public void BlockSecondPortal()
+        {
+            if (secondPortal == null)
+            {
+                block.SetActive(true);
+            }
+            else
+            {
+                block.SetActive(false);
+            }
         }
     }
 }

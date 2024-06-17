@@ -40,83 +40,54 @@ namespace PortalSystem
                 }
             }
 
-            bool horListsIsEqual = false;
-            bool verListsIsEqual = false;
+            ConnectPortal(VerticalLeftPortals, VerticalRightPortals);
+            ConnectPortal(HorizontalUplPortals, HorizontaDownlPortals);
 
-            for (; (horListsIsEqual == false) & (verListsIsEqual == false);)
+            for (int i = 0; i < Portals.Count; i++)
             {
-                if (VerticalLeftPortals.Count != VerticalRightPortals.Count)
-                {
-                    if (VerticalLeftPortals.Count > VerticalRightPortals.Count)
-                    {
-                        VerticalLeftPortals.Remove(VerticalLeftPortals[VerticalLeftPortals.Count - 1]);
-                    }
-                    else
-                    {
-                        VerticalRightPortals.Remove(VerticalRightPortals[VerticalRightPortals.Count - 1]);
-                    }
-                }
-                else
-                {
-                    verListsIsEqual = true;
-                }
+                Portals[i].BlockSecondPortal();
+            }
+        }
 
-                if (HorizontalUplPortals.Count != HorizontaDownlPortals.Count)
+        private void ConnectPortal(List<Portal> Portals1, List<Portal> Portals2)
+        {
+            for (int i = 0; i < Portals1.Count; i++)
+            {
+                int firstIndex = i;
+                int secondIndex = Random.Range(0, Portals2.Count);
+                if (Portals1[firstIndex].portalIndex != Portals2[secondIndex].portalIndex)
                 {
-                    if (HorizontalUplPortals.Count > HorizontaDownlPortals.Count)
-                    {
-                        HorizontalUplPortals.Remove(HorizontalUplPortals[HorizontalUplPortals.Count - 1]);
-                    }
-                    else
-                    {
-                        HorizontaDownlPortals.Remove(HorizontaDownlPortals[HorizontaDownlPortals.Count - 1]);
-                    }
-                }
-                else
-                {
-                    horListsIsEqual = true;
+                    Portals1[firstIndex].secondPortal = Portals2[secondIndex];
+                    Portals2[secondIndex].secondPortal = Portals1[firstIndex];
+                    Portals1.RemoveAt(firstIndex);
+                    Portals2.RemoveAt(secondIndex);
                 }
             }
-
-            int verCount = VerticalLeftPortals.Count;
-            for (int i = 0; i < verCount; i++)
+            
+            for (int i = 0; i < Portals1.Count; i++)
             {
-                int leftIndex = Random.Range(0, VerticalLeftPortals.Count);
-                int rightIndex = Random.Range(0, VerticalRightPortals.Count);
-
-                if (VerticalLeftPortals[leftIndex].portaIndex != VerticalRightPortals[rightIndex].portaIndex)
+                int firstIndex = i;
+                int secondIndex = i;
+                if (Portals1[firstIndex].portalIndex != Portals2[secondIndex].portalIndex)
                 {
-                    VerticalLeftPortals[leftIndex].secondPortal = VerticalRightPortals[rightIndex];
-                    VerticalRightPortals[rightIndex].secondPortal = VerticalLeftPortals[leftIndex];
-                    VerticalLeftPortals.RemoveAt(leftIndex);
-                    VerticalRightPortals.RemoveAt(rightIndex);
+                    Portals1[firstIndex].secondPortal = Portals2[secondIndex];
+                    Portals2[secondIndex].secondPortal = Portals1[firstIndex];
+                    Portals1.RemoveAt(firstIndex);
+                    Portals2.RemoveAt(secondIndex);
                 }
                 else
                 {
-                    i--;
-                }
-                
-            }
-
-            int horCount = HorizontalUplPortals.Count;
-            for (int i = 0; i < horCount; i++)
-            {
-                int upIndex = Random.Range(0, HorizontalUplPortals.Count);
-                int downIndex = Random.Range(0, HorizontaDownlPortals.Count);
-
-                if (HorizontalUplPortals[upIndex].portaIndex != HorizontaDownlPortals[downIndex].portaIndex)
-                {
-                    HorizontalUplPortals[upIndex].secondPortal = HorizontaDownlPortals[downIndex];
-                    HorizontaDownlPortals[downIndex].secondPortal = HorizontalUplPortals[upIndex];
-
-                    HorizontalUplPortals.RemoveAt(upIndex);
-                    HorizontaDownlPortals.RemoveAt(downIndex);
-                }
-                else
-                {
-                    i--;
+                    Portals1[firstIndex].BlockSecondPortal();
+                    Portals2[secondIndex].BlockSecondPortal();
+                    Portals1.RemoveAt(firstIndex);
+                    Portals2.RemoveAt(secondIndex);
                 }
             }
         }
     }
 }
+/*
+            while ((Portals1.Count != 0) & (Portals2.Count != 0))
+            {
+            }
+*/

@@ -1,21 +1,23 @@
-﻿using BulletSystem;
-using PlayerSystems;
+using EnemySystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Debug
+namespace SpawnerSystem
 {
-    public class GenerDebug : MonoBehaviour
+    public class DungeonSpawnerTrigger : MonoBehaviour
     {
         [SerializeField] private LayerMask PlayerMask;
-        [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private List<DungeonSpawner> spawners;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (((1 << collision.gameObject.layer) & PlayerMask) != 0)
             {
-                spriteRenderer.color = new Color32(0, 255, 0, 100);
+                for (int i = 0; i < spawners.Count; i++)
+                {
+                    spawners[i].Spawn();
+                }
             }
         }
     }
