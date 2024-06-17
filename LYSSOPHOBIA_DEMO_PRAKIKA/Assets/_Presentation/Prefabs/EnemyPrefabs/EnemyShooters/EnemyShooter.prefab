@@ -58,7 +58,8 @@ GameObject:
   - component: {fileID: 4663316091949154541}
   - component: {fileID: 2329014651597063204}
   - component: {fileID: 1313081957622448855}
-  m_Layer: 0
+  - component: {fileID: 6300657890322478364}
+  m_Layer: 7
   m_Name: EnemyShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5b86b7985ede94f8122034b5ca1fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 5
   health: 10
   damage: 1
   BulletLayer:
@@ -156,6 +157,7 @@ MonoBehaviour:
     m_Bits: 64
   enemyShoot: {fileID: 5565553028348564016}
   bulletPool: {fileID: 695206329993507807}
+  rb: {fileID: 6300657890322478364}
 --- !u!58 &1313081957622448855
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -191,6 +193,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &6300657890322478364
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645381638148664303}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1150587892791925687
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +539,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.00000047684, z: 0}
-  m_LocalScale: {x: 11.415358, y: 11.415358, z: 11.415358}
+  m_LocalScale: {x: 6.067719, y: 6.067719, z: 6.067719}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 433231806816642580}

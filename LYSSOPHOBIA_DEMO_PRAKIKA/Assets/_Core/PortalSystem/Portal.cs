@@ -31,9 +31,9 @@ namespace PortalSystem
             }
         }
 
-        public void TeleportPlayer(GameObject player)
+        public void TeleportPlayer(GameObject teleportingObject)
         {
-            player.transform.position = secondPortal.exitPortal.position;
+            teleportingObject.transform.position = secondPortal.exitPortal.position;
         }
 
         public void BlockSecondPortal()

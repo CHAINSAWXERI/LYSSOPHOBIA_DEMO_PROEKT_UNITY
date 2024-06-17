@@ -272,7 +272,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  playerBody: {fileID: 6860499019825368979, guid: e9436ed0381dc3446be77956fa4fa438, type: 3}
   enemy: {fileID: 2809108919125924089}
   punchTime: 5
 --- !u!1 &6866675586159486264
@@ -287,6 +286,7 @@ GameObject:
   - component: {fileID: 3229280866798046865}
   - component: {fileID: 2809108919125924089}
   - component: {fileID: 1348463423792456343}
+  - component: {fileID: 8785061327825114492}
   m_Layer: 7
   m_Name: EnemyWalker
   m_TagString: Untagged
@@ -377,10 +377,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.63
   health: 5
-  damage: 0
+  damage: 3
   BulletLayer:
     serializedVersion: 2
     m_Bits: 64
+  rb: {fileID: 8785061327825114492}
 --- !u!58 &1348463423792456343
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -416,3 +417,30 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &8785061327825114492
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866675586159486264}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

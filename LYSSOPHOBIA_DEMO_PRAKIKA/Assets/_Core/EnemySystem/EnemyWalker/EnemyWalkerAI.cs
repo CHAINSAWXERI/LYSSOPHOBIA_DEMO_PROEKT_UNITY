@@ -12,6 +12,13 @@ namespace EnemyWalker
         [SerializeField] public int health;
         [SerializeField] public int damage;
         [SerializeField] private LayerMask BulletLayer;
+        [SerializeField] public Rigidbody2D rb;
+        private Vector3 startTransform;
+
+        void Start()
+        {
+            startTransform = transform.position;
+        }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -21,15 +28,18 @@ namespace EnemyWalker
                 health -= bullet.Damage;
                 if (health <= 0)
                 {
-                    gameObject.SetActive(false);
                     // Спавн Лута
+                    transform.position = startTransform;
+                    gameObject.SetActive(false);
                 }
             }
         }
 
         public void ActiveMode(Transform target)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.fixedDeltaTime);
+            Vector3 moveDirection = target.position - transform.position;
+            rb.MovePosition(transform.position + moveDirection.normalized * moveSpeed * Time.fixedDeltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.fixedDeltaTime);
         }
     }
 }

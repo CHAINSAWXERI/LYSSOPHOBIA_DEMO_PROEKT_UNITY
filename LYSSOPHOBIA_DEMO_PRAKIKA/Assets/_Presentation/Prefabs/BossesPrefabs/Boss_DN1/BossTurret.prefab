@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.67448425, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 1299191929066538254}
   - component: {fileID: 5150163353160109181}
   - component: {fileID: 6899027108636644054}
-  - component: {fileID: 4978622265331385961}
+  - component: {fileID: 7034691852258299437}
   m_Layer: 7
   m_Name: EnemyAttackZone
   m_TagString: Untagged
@@ -322,7 +322,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &4978622265331385961
+--- !u!114 &7034691852258299437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -331,12 +331,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3107470894956907417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d034481720c294e9f792215c0bd4ee, type: 3}
+  m_Script: {fileID: 11500000, guid: afa0c1a7c25c9a5458588a757d4d579c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggeredLayer:
+  bulletPool: {fileID: 2218126905947277141}
+  firePoint: {fileID: 7826260637154317368}
+  targetPoint: {fileID: 7481355484271722682}
+  playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  enemyAiming: {fileID: 8308490004488910989}
+  enemyShooter: {fileID: 0}
+  shootTime: 3
 --- !u!1 &6326265651532977988
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +419,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.67448425, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

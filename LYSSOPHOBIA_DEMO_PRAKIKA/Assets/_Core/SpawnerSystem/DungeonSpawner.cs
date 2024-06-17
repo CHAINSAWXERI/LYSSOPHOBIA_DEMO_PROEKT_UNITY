@@ -15,16 +15,16 @@ namespace SpawnerSystem
             EnemySpawner
         }
 
-        [SerializeField] private SpawnlType spawnlType;
+        [SerializeField] public SpawnlType spawnlType;
         [SerializeField] private List<GameObject> enemies;
         [SerializeField] private GameObject portalToBossRoom;
 
         private System.Random _rnd = new System.Random();
         
 
-        void Start()
+        void Awake()
         {
-            for (int i =0; i < enemies.Count; i++)
+            for (int i = 0; i < enemies.Count; i++)
             {
                 enemies[i].SetActive(false);
             }
@@ -39,13 +39,21 @@ namespace SpawnerSystem
                 //int rndIndex = Random.Range(0, enemies.Count);
                 enemies[rndIndex].SetActive(true);
             }
-            if (spawnlType == SpawnlType.BossRoomDoor)
+        }
+
+        public void SpawnPortalToBossRoom()
+        {
+            portalToBossRoom.SetActive(true);
+        }
+
+        public void Destroy()
+        {
+            if (spawnlType == SpawnlType.EnemySpawner)
             {
-                int rndIndex = _rnd.Next(0, enemies.Count);
-                //int rndIndex = Random.Range(0, 6);
-                if (rndIndex == 3) 
+                for (int i = 0; i < enemies.Count; i++)
                 {
-                    portalToBossRoom.SetActive(true);
+                    enemies[i].transform.position = transform.position;
+                    enemies[i].SetActive(false);
                 }
             }
         }

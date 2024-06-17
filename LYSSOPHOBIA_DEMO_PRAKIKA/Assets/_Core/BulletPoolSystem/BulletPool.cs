@@ -13,7 +13,7 @@ namespace BulletPoolSystem
         public Transform targetPoint { private get; set; }
         private List<Bullet> pool = new List<Bullet>();
 
-        public int damageBullet { private get; set; }
+        [HideInInspector] public int damageBullet;
 
         public void Start()
         {

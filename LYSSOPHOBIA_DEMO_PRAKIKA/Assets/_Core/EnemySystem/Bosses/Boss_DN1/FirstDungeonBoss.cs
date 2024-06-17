@@ -1,21 +1,35 @@
+using BulletSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Boss_DN1
 {
-    public class FirstDungeonBoss : MonoBehaviour
+    public class FirstDungeonBoss : MonoBehaviour, IBoss
     {
-        // Start is called before the first frame update
+        [SerializeField] public LayerMask bulletLayer;
+        [SerializeField] public int health;
+        [SerializeField] public GameObject ExitFromDungeon;
+
+
         void Start()
         {
-
+            ExitFromDungeon.SetActive(false);
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-
+            if (((1 << collision.gameObject.layer) & bulletLayer) != 0)
+            {
+                Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+                health -= bullet.Damage;
+                if (health <= 0)
+                {
+                    ExitFromDungeon.SetActive(true);
+                    gameObject.SetActive(false);
+                }
+            }
         }
     }
 }

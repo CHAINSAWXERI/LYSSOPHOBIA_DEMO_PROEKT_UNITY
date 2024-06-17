@@ -25,7 +25,7 @@ namespace EnemyShooter
             bulletPool.firePoint = firePoint.transform;
             bulletPool.targetPoint = targetPoint.transform;
             lastPrintTime = Time.timeSinceLevelLoad;
-            bulletPool.damageBullet = enemyShooter.damage;
+            bulletPool.damageBullet = bulletPool.damageBullet;
         }
 
         private void Update()

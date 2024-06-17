@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d62d2a4edd7ecb4d8594c41f6424164, type: 3}
   m_Name: SOstats
   m_EditorClassIdentifier: 
-  moveSpeed: 50
+  moveSpeed: 10
   damageBullet: 1
   healthPoints: 100

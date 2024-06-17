@@ -923,7 +923,7 @@ MonoBehaviour:
   exitPortal: {fileID: 3300408161680898779}
   triggeredLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   portalType: 3
   portalIndex: 0
   block: {fileID: 2521962979689705415}
@@ -2144,7 +2144,7 @@ MonoBehaviour:
   exitPortal: {fileID: 6076667316412585905}
   triggeredLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   portalType: 2
   portalIndex: 0
   block: {fileID: 2203947883768239801}
@@ -2297,7 +2297,7 @@ MonoBehaviour:
   exitPortal: {fileID: 7848974544137309944}
   triggeredLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   portalType: 1
   portalIndex: 0
   block: {fileID: 8265538640316982427}
@@ -3417,7 +3417,7 @@ MonoBehaviour:
   exitPortal: {fileID: 1734865637969200022}
   triggeredLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   portalType: 0
   portalIndex: 0
   block: {fileID: 488172347782626600}
