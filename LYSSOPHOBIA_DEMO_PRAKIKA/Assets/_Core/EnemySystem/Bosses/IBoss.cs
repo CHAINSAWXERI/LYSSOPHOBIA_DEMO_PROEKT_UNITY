@@ -4,5 +4,11 @@ using UnityEngine;
 
 public interface IBoss
 {
+    void StartBossBattle();
 
+    void FirstPhase();
+
+    void SecondPhase();
+
+    void ThirdPhase();
 }

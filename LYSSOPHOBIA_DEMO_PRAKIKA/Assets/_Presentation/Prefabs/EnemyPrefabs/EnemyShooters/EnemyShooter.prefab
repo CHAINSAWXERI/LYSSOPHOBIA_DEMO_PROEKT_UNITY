@@ -151,13 +151,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   health: 10
-  damage: 1
+  damage: 5
   BulletLayer:
     serializedVersion: 2
     m_Bits: 64
   enemyShoot: {fileID: 5565553028348564016}
   bulletPool: {fileID: 695206329993507807}
   rb: {fileID: 6300657890322478364}
+  Loot: {fileID: 4763971696238330687, guid: 5d82165c8ef990c43bc4491a84e5f172, type: 3}
 --- !u!58 &1313081957622448855
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645381638148664303}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -248,8 +249,8 @@ Transform:
   m_GameObject: {fileID: 1150587892791925687}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000019073, y: 0.00000023842, z: 0}
-  m_LocalScale: {x: 18.62511, y: 18.62511, z: 18.62511}
+  m_LocalPosition: {x: 0.0000019073, y: 0.00000047684, z: 0}
+  m_LocalScale: {x: 19.366627, y: 19.366627, z: 19.366627}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 433231806816642580}
@@ -353,6 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa0c1a7c25c9a5458588a757d4d579c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shooterType: 0
   bulletPool: {fileID: 695206329993507807}
   firePoint: {fileID: 4780514530434857640}
   targetPoint: {fileID: 4996505796372609396}
@@ -438,7 +440,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.6218538, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -692,3 +694,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7516151344486391113, guid: 55c0de7809b910b46bedb639e7869abb, type: 3}
   poolSize: 10
+  damageBullet: 0

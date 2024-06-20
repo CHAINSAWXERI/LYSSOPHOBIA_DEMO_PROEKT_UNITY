@@ -8,6 +8,14 @@ namespace EnemyShooter
 {
     public class EnemyShootZone : MonoBehaviour
     {
+        [SerializeField]
+        public enum ShooterType
+        {
+            EnemyShooter,
+            TurretBoss
+        }
+
+        [SerializeField] public ShooterType shooterType;
         [SerializeField] public BulletPool bulletPool;
         [SerializeField] public GameObject firePoint;
         [SerializeField] public GameObject targetPoint;
@@ -25,7 +33,10 @@ namespace EnemyShooter
             bulletPool.firePoint = firePoint.transform;
             bulletPool.targetPoint = targetPoint.transform;
             lastPrintTime = Time.timeSinceLevelLoad;
-            bulletPool.damageBullet = bulletPool.damageBullet;
+            if (shooterType == ShooterType.EnemyShooter)
+            {
+                bulletPool.damageBullet = enemyShooter.damage;
+            }
         }
 
         private void Update()

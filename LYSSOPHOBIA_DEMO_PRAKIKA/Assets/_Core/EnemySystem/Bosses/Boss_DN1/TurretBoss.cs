@@ -14,8 +14,8 @@ namespace Boss_DN1
         [SerializeField] public GameObject targetPoint;
         [SerializeField] public LayerMask playerLayer;
         [SerializeField] public EnemyAiming enemyAiming;
-        [SerializeField] public int damage;
-        [SerializeField] private float shootTime;
+        [HideInInspector] public int damage;
+        [HideInInspector] public float shootTime;
 
         private float lastPrintTime;
         private bool isTriggered = false;

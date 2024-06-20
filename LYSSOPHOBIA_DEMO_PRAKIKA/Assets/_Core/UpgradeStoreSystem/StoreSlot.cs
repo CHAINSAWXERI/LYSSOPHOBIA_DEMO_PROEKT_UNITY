@@ -30,7 +30,7 @@ namespace UpgradeStoreSystem
         {
             DragUpgrade upgrade = eventData.pointerDrag.GetComponent<DragUpgrade>();
 
-            if (upgrade != null)
+            if ((upgrade != null) & (upgrade.lastStr == false))
             {
                 upgrade.DefaultParent = transform;
                 upgradeStoreData.UpdatePlayerDataMinus(upgrade.StatsData);

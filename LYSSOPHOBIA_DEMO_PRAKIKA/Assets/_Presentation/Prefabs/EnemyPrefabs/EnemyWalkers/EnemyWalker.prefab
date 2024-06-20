@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.7175, y: 7.7175, z: 7.7175}
+  m_LocalScale: {x: 13.720172, y: 13.720172, z: 13.720172}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8206351385616614949}
@@ -375,13 +375,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8d1ea26b98ff24c807b74c904d6366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.63
+  moveSpeed: 5
   health: 5
   damage: 3
   BulletLayer:
     serializedVersion: 2
     m_Bits: 64
   rb: {fileID: 8785061327825114492}
+  Loot: {fileID: 4763971696238330687, guid: 5d82165c8ef990c43bc4491a84e5f172, type: 3}
 --- !u!58 &1348463423792456343
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -425,7 +426,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6866675586159486264}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

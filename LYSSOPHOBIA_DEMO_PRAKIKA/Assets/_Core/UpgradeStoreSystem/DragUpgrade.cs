@@ -16,6 +16,7 @@ namespace UpgradeStoreSystem
         private Vector3 offset;
         public Transform OriginParent { get; private set; }
         public Transform DefaultParent;
+        public bool lastStr = false;
 
 
         void Awake()

@@ -7,7 +7,7 @@ namespace UpgradeStoreSystem
 {
     public class DataForUpgradeStore : MonoBehaviour
     {
-        public PlayerData playerData;
+        [HideInInspector] public PlayerData playerData;
         [SerializeField] public List<StoreSlot> storeSlots = new List<StoreSlot>();
 
         public void Start()

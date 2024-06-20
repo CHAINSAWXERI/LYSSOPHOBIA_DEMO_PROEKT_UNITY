@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Presentation/Scenes/SampleScene.unity
+    path: Assets/_Presentation/Scenes/Menu.unity
+    guid: 6813a55760378a74c81dd0554cf550d9
+  - enabled: 1
+    path: Assets/_Presentation/Scenes/Base.unity
+    guid: 32b3fe4ffa849a14e882edd7991604e4
+  - enabled: 1
+    path: Assets/_Presentation/Scenes/Dungeon_One.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/_Presentation/Scenes/Thanx_For_Playing.unity
+    guid: 61e273dad1a213c4aa3f57dad1bdf37a
   m_configObjects: {}

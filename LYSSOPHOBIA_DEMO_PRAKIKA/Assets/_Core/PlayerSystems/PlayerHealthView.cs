@@ -8,6 +8,8 @@ namespace PlayerSystems
     public class PlayerHealthView : MonoBehaviour
     {
         [SerializeField] private TMP_Text healthText;
+        [SerializeField] private GameObject DeathPanel;
+        [SerializeField] private PlayerController playerController;
         public PlayerHealthModel playerHealth;
         void Start()
         {
@@ -20,6 +22,8 @@ namespace PlayerSystems
             playerHealth.DecreaseHealth(amount);
             if (playerHealth.healthPoints == 0)
             {
+                playerController.enabled = false;
+                DeathPanel.SetActive(true);
                 Debug.Log("ЛОГИКА ПРОИГРЫША");
             }
             float p = ((float)playerHealth.healthPoints / (float)playerHealth.maxhealthPoints) * 100;

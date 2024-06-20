@@ -12,6 +12,7 @@ namespace UpgradeStoreSystem
         [SerializeField] private KeyCode ButtonActivateStore;
         [SerializeField] private int TriggerLayer;
         private PlayerData player;
+        private PlayerController playerController;
         private bool IsPlayerInsideTrigger;
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -21,6 +22,7 @@ namespace UpgradeStoreSystem
                 ButtonActivateStoreUI.SetActive(true);
                 IsPlayerInsideTrigger = true;
                 player = collision.gameObject.GetComponent<PlayerData>();
+                playerController = collision.gameObject.GetComponent<PlayerController>();
                 UpgradeStoreUI.playerData = player;
             }
         }
@@ -32,7 +34,7 @@ namespace UpgradeStoreSystem
             {
                 if (IsPlayerInsideTrigger)
                 {
-                    player.gameObject.SetActive(false);
+                    playerController.enabled = false;
                     UpgradeStoreUI.gameObject.SetActive(true);
                 }
             }

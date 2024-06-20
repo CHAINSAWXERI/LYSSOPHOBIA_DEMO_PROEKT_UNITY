@@ -16,6 +16,7 @@ namespace EnemyShooter
         [SerializeField] private EnemyShootZone enemyShoot;
         [SerializeField] public BulletPool bulletPool;
         [SerializeField] public Rigidbody2D rb;
+        [SerializeField] public GameObject Loot;
         private Vector3 startTransform;
 
         void Start()
@@ -31,7 +32,7 @@ namespace EnemyShooter
                 health -= bullet.Damage;
                 if (health <= 0)
                 {
-                    // Спавн Лута
+                    Instantiate(Loot, transform.position, transform.rotation);
                     transform.position = startTransform;
                     gameObject.SetActive(false);
                 }
