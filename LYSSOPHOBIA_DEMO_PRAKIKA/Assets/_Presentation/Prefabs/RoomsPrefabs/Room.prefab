@@ -1149,7 +1149,6 @@ GameObject:
   - component: {fileID: 7643175679109680155}
   - component: {fileID: 2972721821441213125}
   - component: {fileID: 6692272992306403104}
-  - component: {fileID: 5243927728849804742}
   - component: {fileID: 8887938419349942683}
   m_Layer: 0
   m_Name: TriggerSpawner
@@ -1270,22 +1269,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5243927728849804742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903855311632202846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09201d3957b9060479f8577f36bc44e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  spriteRenderer: {fileID: 2972721821441213125}
 --- !u!114 &8887938419349942683
 MonoBehaviour:
   m_ObjectHideFlags: 0
