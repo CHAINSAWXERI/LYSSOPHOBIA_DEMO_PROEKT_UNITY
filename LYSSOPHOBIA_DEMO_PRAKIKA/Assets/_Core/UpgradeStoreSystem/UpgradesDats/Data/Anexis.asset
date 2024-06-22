@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <price>k__BackingField: 10
   <health>k__BackingField: 0
-  <speed>k__BackingField: 30
-  <damage>k__BackingField: 0
+  <speed>k__BackingField: 0
+  <damage>k__BackingField: 5

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488d00911e7024c44bc53b91bdef4f62, type: 3}
   m_Name: PlayerPocket
   m_EditorClassIdentifier: 
-  coins: 40
+  coins: -300

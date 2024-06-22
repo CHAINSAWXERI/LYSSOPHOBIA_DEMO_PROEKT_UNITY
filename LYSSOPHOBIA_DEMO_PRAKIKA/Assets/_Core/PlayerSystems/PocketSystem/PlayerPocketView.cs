@@ -9,11 +9,10 @@ namespace PocketSystem
     public class PlayerPocketView : MonoBehaviour
     {
         [SerializeField] private TMP_Text pocketText;
-        [SerializeField] public PlayerPocket playerPocket;
 
-        void Update()
+        public void UpdateViewCoin(PlayerPocketSO pocketSO)
         {
-            pocketText.text = playerPocket.pocketSO.coins + " Coins";
+            pocketText.text = pocketSO.coins + " Coins";
         }
     }
 }

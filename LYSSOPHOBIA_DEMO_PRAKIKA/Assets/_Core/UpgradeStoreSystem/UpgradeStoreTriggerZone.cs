@@ -23,7 +23,6 @@ namespace UpgradeStoreSystem
                 IsPlayerInsideTrigger = true;
                 player = collision.gameObject.GetComponent<PlayerData>();
                 playerController = collision.gameObject.GetComponent<PlayerController>();
-                UpgradeStoreUI.playerData = player;
             }
         }
 
@@ -35,6 +34,7 @@ namespace UpgradeStoreSystem
                 if (IsPlayerInsideTrigger)
                 {
                     playerController.enabled = false;
+                    UpgradeStoreUI.playerData = player;
                     UpgradeStoreUI.gameObject.SetActive(true);
                 }
             }

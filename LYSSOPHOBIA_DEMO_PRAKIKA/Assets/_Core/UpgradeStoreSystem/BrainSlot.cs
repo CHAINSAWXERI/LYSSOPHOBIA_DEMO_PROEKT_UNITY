@@ -14,24 +14,29 @@ namespace UpgradeStoreSystem
         {
             if (currentObject != null)
             {
+                Debug.Log("1");
                 currentObject.transform.SetParent(currentObject.OriginParent);
-                upgradeStoreData.UpdatePlayerDataMinus(currentObject.StatsData);
                 currentObject = null;
             }
-
-            upgrade.transform.SetParent(transform, false);
-            currentObject = upgrade;
+            else
+            {
+                Debug.Log("2");
+                upgrade.transform.SetParent(transform, false);
+                currentObject = upgrade;
+            }
         }
 
         public void OnDrop(PointerEventData eventData)
         {
             DragUpgrade upgrade = eventData.pointerDrag.GetComponent<DragUpgrade>();
 
-            if ((upgrade != null) & (upgrade.lastStr == true))
+            ProcessUpgrade(upgrade);
+
+            if ((upgrade.lastStr == false))
             {
+                upgrade.lastStr = true;
                 upgrade.DefaultParent = transform;
                 upgradeStoreData.UpdatePlayerDataPlus(upgrade.StatsData);
-                ProcessUpgrade(upgrade);
             }
         }
     }

@@ -29,7 +29,7 @@ namespace UpgradeStoreSystem
         //outBrain.upgradeStoreData.playerData.pocket.pocketSO.coins > StatsData.price
         public void OnBeginDrag(PointerEventData eventData)
         {
-            BrainSlot outBrain = DefaultParent.GetComponent<BrainSlot>();
+            //BrainSlot outBrain = DefaultParent.GetComponent<BrainSlot>();
             offset = transform.position - MainCamera.ScreenToWorldPoint(eventData.position);
             DefaultParent = transform.parent;
             transform.SetParent(DefaultParent.parent);

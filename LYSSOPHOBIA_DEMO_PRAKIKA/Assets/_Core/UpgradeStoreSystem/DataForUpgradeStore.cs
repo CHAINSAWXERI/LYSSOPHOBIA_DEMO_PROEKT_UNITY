@@ -21,7 +21,7 @@ namespace UpgradeStoreSystem
 
         public void UpdatePlayerDataPlus(UpgradesSO upgradeData)
         {
-            playerData.pocket.pocketSO.coins -= upgradeData.price;
+            playerData.pocket.NewCoinValueMinus(upgradeData.price); //
             playerData.moveSpeed += upgradeData.speed;
             playerData.damageBullet += upgradeData.damage;
             playerData.healthPoints += upgradeData.health;
@@ -30,7 +30,7 @@ namespace UpgradeStoreSystem
 
         public void UpdatePlayerDataMinus(UpgradesSO upgradeData)
         {
-            playerData.pocket.pocketSO.coins += upgradeData.price;
+            playerData.pocket.NewCoinValuePlus(upgradeData.price); //
             playerData.moveSpeed -= upgradeData.speed;
             playerData.damageBullet -= upgradeData.damage;
             playerData.healthPoints -= upgradeData.health;

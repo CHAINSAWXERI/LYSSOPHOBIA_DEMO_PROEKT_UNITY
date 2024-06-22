@@ -7,34 +7,40 @@ namespace UpgradeStoreSystem
 {
     public class StoreSlot : MonoBehaviour, IDropHandler
     {
-
-        public DataForUpgradeStore upgradeStoreData;
+        [SerializeField] public DataForUpgradeStore upgradeStoreData;
         private DragUpgrade currentObject;
 
-        /*
         public void ProcessUpgrade(DragUpgrade upgrade)
         {
             if (currentObject != null)
             {
+                Debug.Log("1");
                 currentObject.transform.SetParent(currentObject.OriginParent);
-                upgradeStoreData.UpdatePlayerDataMinus(currentObject.StatsData);
                 currentObject = null;
             }
-
-            upgrade.transform.SetParent(transform, false);
-            currentObject = upgrade;
+            else
+            {
+                Debug.Log("2");
+                upgrade.transform.SetParent(transform, false);
+                currentObject = upgrade;
+            }
         }
-        */
 
         public void OnDrop(PointerEventData eventData)
         {
             DragUpgrade upgrade = eventData.pointerDrag.GetComponent<DragUpgrade>();
 
-            if ((upgrade != null) & (upgrade.lastStr == false))
+            ProcessUpgrade(upgrade);
+
+            if ((upgrade.lastStr == true))
             {
+                upgrade.lastStr = false;
                 upgrade.DefaultParent = transform;
+                if (upgrade.StatsData != null)
+                {
+                    Debug.Log("All Ok");
+                }
                 upgradeStoreData.UpdatePlayerDataMinus(upgrade.StatsData);
-                //ProcessUpgrade(upgrade);
             }
         }
     }
